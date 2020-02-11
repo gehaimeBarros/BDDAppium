@@ -1,7 +1,5 @@
 package br.com.rsinet_hubTesteBDDAppium.TesteMobileAppiumSteps;
 
-import java.util.concurrent.TimeUnit;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
@@ -54,9 +52,9 @@ public class CadastroSteps {
 	public void e_o_usuario_estara_cadastrado() throws Throwable {
 		cadastro.registrar();
 		cadastro.Opçoes(driver);
-		driver.manage().timeouts().implicitlyWait(35, TimeUnit.MILLISECONDS);
+		//driver.manage().timeouts().implicitlyWait(, TimeUnit.MILLISECONDS);
 		String resposta = driver.findElement(By.id("com.Advantage.aShopping:id/textViewMenuUser")).getText();
-		Assert.assertTrue(resposta.equals("GDHJ34"));
+		Assert.assertTrue(resposta.equals("GGhhj33"));
 
 	}
 
@@ -64,8 +62,8 @@ public class CadastroSteps {
 	public void o_usuario_nao_sera_registrado() throws Throwable {
 		cadastro.registrar();
 		cadastro.Opçoes(driver);
-		driver.manage().timeouts().implicitlyWait(35, TimeUnit.MILLISECONDS);
+		//driver.manage().timeouts().implicitlyWait(35, TimeUnit.MILLISECONDS);
 		String resposta = driver.findElement(By.id("com.Advantage.aShopping:id/textViewMenuUser")).getText();
-		Assert.assertFalse(resposta.equals("GDHJ34"));
+		Assert.assertFalse(resposta.equals("GGhhj33"));
 	}
 }

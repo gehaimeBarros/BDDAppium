@@ -65,7 +65,7 @@ public class TestCadastro {
 
 	public void usuario() {
 		usuario.click();
-		usuario.sendKeys("GDHJ34");
+		usuario.sendKeys("GGhhj33");
 	}
 
 	public void email() {
@@ -139,7 +139,7 @@ public class TestCadastro {
 	}
 
 	public void Opçoes(AndroidDriver<MobileElement> driver) {
-		WebDriverWait wait = new WebDriverWait(driver, 40);
+		WebDriverWait wait = new WebDriverWait(driver, 10);
 		wait.until(ExpectedConditions.elementToBeClickable(Opçoes)).click();
 		//Opçoes.click();
 	}

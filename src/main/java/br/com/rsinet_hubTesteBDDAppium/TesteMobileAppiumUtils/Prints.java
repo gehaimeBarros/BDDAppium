@@ -21,7 +21,8 @@ public class Prints {
 
 				File sourcePath = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.FILE);
 
-				File destinationPath = new File("C:\\Users\\gehaime.silva\\Pictures\\Appium" + screenshotName + Gerar.dataHoraParaArquivo() + ".png");
+				File destinationPath = new File("C:\\Users\\gehaime.silva\\Pictures\\Appium" + 
+				screenshotName + Gerar.dataHoraParaArquivo() + ".png");
 
 				Files.copy(sourcePath, destinationPath);
 
