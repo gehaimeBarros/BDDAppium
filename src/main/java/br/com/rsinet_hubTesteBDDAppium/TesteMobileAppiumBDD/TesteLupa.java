@@ -3,14 +3,9 @@ package br.com.rsinet_hubTesteBDDAppium.TesteMobileAppiumBDD;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
 
-import io.appium.java_client.android.AndroidDriver;
 
 public class TesteLupa {
-	public TesteLupa(AndroidDriver<WebElement> driver) {
-		PageFactory.initElements(driver, this);
-	}
 		
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/editTextSearch")
 	private static WebElement Procura;

@@ -4,27 +4,30 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
+
 
 import br.com.rsinet_hubTesteBDDAppium.TesteMobileAppiumBDD.TestCadastro;
 import br.com.rsinet_hubTesteBDDAppium.TesteMobileAppiumUtils.Driver;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.pt.Entao;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 
 public class CadastroSteps {
 
-	public static AndroidDriver<WebElement> driver;
+	private static AndroidDriver<MobileElement> driver;
+	private TestCadastro cadastro;
 
 	@Dado("^que estou no aplicativo advantage shopping mobile$")
 	public void que_estou_no_aplicativo_advantage_shopping_mobile() throws Throwable {
-		driver = Driver.Iniciar();
-
+		driver = Driver.getDriver();
+		cadastro = PageFactory.initElements(driver, TestCadastro.class);
+		System.out.println(driver);
 	}
 
 	@Dado("^clico em fazer login$")
 	public void clico_em_fazer_login() throws Throwable {
-		TestCadastro cadastro = new TestCadastro(driver);
 		cadastro.novo();
 		cadastro.menu();
 		cadastro.novaConta();
@@ -32,7 +35,6 @@ public class CadastroSteps {
 
 	@Dado("^clico preencher cadastro$")
 	public void clico_preencher_cadastro() throws Throwable {
-		TestCadastro cadastro = new TestCadastro(driver);
 		cadastro.usuario();
 		cadastro.email();
 		cadastro.senha();
@@ -50,23 +52,20 @@ public class CadastroSteps {
 
 	@Entao("^e o usuario estara cadastrado$")
 	public void e_o_usuario_estara_cadastrado() throws Throwable {
-		TestCadastro cadastro = new TestCadastro(driver);
 		cadastro.registrar();
-		cadastro.Opçoes();
-		driver.manage().timeouts().implicitlyWait(100, TimeUnit.MICROSECONDS);
+		cadastro.Opçoes(driver);
+		driver.manage().timeouts().implicitlyWait(35, TimeUnit.MILLISECONDS);
 		String resposta = driver.findElement(By.id("com.Advantage.aShopping:id/textViewMenuUser")).getText();
-		Assert.assertTrue(resposta.equals("Geh7878"));
+		Assert.assertTrue(resposta.equals("GDHJ34"));
 
 	}
 
 	@Entao("^o usuario nao sera registrado$")
 	public void o_usuario_nao_sera_registrado() throws Throwable {
-		TestCadastro cadastro = new TestCadastro(driver);
 		cadastro.registrar();
-		cadastro.Opçoes();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.MILLISECONDS);
+		cadastro.Opçoes(driver);
+		driver.manage().timeouts().implicitlyWait(35, TimeUnit.MILLISECONDS);
 		String resposta = driver.findElement(By.id("com.Advantage.aShopping:id/textViewMenuUser")).getText();
-		Assert.assertFalse(resposta.equals("Geh7878"));
-		Driver.Quit(driver);
+		Assert.assertFalse(resposta.equals("GDHJ34"));
 	}
 }

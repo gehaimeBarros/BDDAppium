@@ -3,15 +3,10 @@ package br.com.rsinet_hubTesteBDDAppium.TesteMobileAppiumBDD;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
 
-import io.appium.java_client.android.AndroidDriver;
 
 public class TesteCompra {
-	public TesteCompra(AndroidDriver<WebElement> driver) {
-		PageFactory.initElements(driver, this);
-
-	}
+	
 	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[1]/android.widget.TextView")
 	private static WebElement Categoria;
 	@FindBy(how = How.XPATH, using = "//android.widget.RelativeLayout[@content-desc=\"Laptops\"]/android.widget.LinearLayout/android.widget.GridView/android.widget.RelativeLayout[4]/android.widget.TextView")

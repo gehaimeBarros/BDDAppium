@@ -4,16 +4,15 @@ package br.com.rsinet_hubTesteBDDAppium.TesteMobileAppiumBDD;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.touch.offset.PointOption;
 
-public class TestCadastro {	
-	public TestCadastro(AndroidDriver<WebElement> driver) {
-		PageFactory.initElements(driver, this);
-	}
+public class TestCadastro {
 
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/imageViewMenu")
 	private static WebElement novo;
@@ -66,7 +65,7 @@ public class TestCadastro {
 
 	public void usuario() {
 		usuario.click();
-		usuario.sendKeys("Geh7878");
+		usuario.sendKeys("GDHJ34");
 	}
 
 	public void email() {
@@ -80,7 +79,7 @@ public class TestCadastro {
 	}
 
 	@SuppressWarnings("rawtypes")
-	public void confirmaSenha(AndroidDriver<WebElement> driver) {
+	public void confirmaSenha(AndroidDriver<MobileElement> driver) {
 		confirmaSenha.click();
 		confirmaSenha.sendKeys("Am#2019");
 		TouchAction actions = new TouchAction(driver);
@@ -126,10 +125,10 @@ public class TestCadastro {
 		cidade.sendKeys("Jagodine ");
 	}
 
-	@SuppressWarnings("rawtypes")
-	public void Cep(AndroidDriver<WebElement> driver) {
+	public void Cep(AndroidDriver<MobileElement> driver) {
 		Cep.click();
 		Cep.sendKeys("04342-344");
+		@SuppressWarnings("rawtypes")
 		TouchAction actions = new TouchAction(driver);
 		actions.press(PointOption.point(1056, 1771)).moveTo(PointOption.point(1065, 992)).release().perform();
 
@@ -139,8 +138,10 @@ public class TestCadastro {
 		registrar.click();
 	}
 
-	public void Opçoes() {
-		Opçoes.click();
+	public void Opçoes(AndroidDriver<MobileElement> driver) {
+		WebDriverWait wait = new WebDriverWait(driver, 40);
+		wait.until(ExpectedConditions.elementToBeClickable(Opçoes)).click();
+		//Opçoes.click();
 	}
 
 }
