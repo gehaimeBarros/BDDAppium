@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import br.com.rsinet_hubTesteBDDAppium.TesteMobileAppiumBDD.TesteLupa;
 import br.com.rsinet_hubTesteBDDAppium.TesteMobileAppiumUtils.Driver;
+import br.com.rsinet_hubTesteBDDAppium.TesteMobileAppiumUtils.TakeSnapShot;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.pt.Entao;
 import io.appium.java_client.MobileElement;
@@ -34,6 +35,7 @@ public class LupaSteps {
 	@Entao("^a pagina do resultado aparecera com o resultado da busca do seu produto$")
 	public void a_pagina_do_resultado_aparecera_com_o_resultado_da_busca_do_seu_produto() throws Throwable {
 		Buscas.product();
+		TakeSnapShot.tirarPrints("Busca bem sucedida" , driver);
 		driver.manage().timeouts().implicitlyWait(100, TimeUnit.MICROSECONDS);
 		String resposta = driver.findElement(By.id("com.Advantage.aShopping:id/textViewProductName")).getText();
 		Assert.assertTrue(resposta.equals("HP USB 3 BUTTON OPTICAL MOUSE"));
@@ -50,6 +52,7 @@ public class LupaSteps {
 	@Entao("^aparecera uma pagina informando que o produto nao foi encontrado$")
 	public void aparecera_uma_pagina_informando_que_o_produto_nao_foi_encontrado() throws Throwable {
 		Buscas.clica();
+		TakeSnapShot.tirarPrints("Produto nao encontrado" , driver);
 		driver.manage().timeouts().implicitlyWait(100, TimeUnit.MICROSECONDS);
 		String resposta = driver.findElement(By.id("com.Advantage.aShopping:id/textViewNoProductsToShow")).getText();
 		Assert.assertFalse(resposta.equals("No results for \"xiaomi\""));

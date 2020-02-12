@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import br.com.rsinet_hubTesteBDDAppium.TesteMobileAppiumBDD.TestCadastro;
 import br.com.rsinet_hubTesteBDDAppium.TesteMobileAppiumUtils.Driver;
+import br.com.rsinet_hubTesteBDDAppium.TesteMobileAppiumUtils.TakeSnapShot;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.pt.Entao;
 import io.appium.java_client.MobileElement;
@@ -52,9 +53,11 @@ public class CadastroSteps {
 	public void e_o_usuario_estara_cadastrado() throws Throwable {
 		cadastro.registrar();
 		cadastro.Opçoes(driver);
+		TakeSnapShot.tirarPrints("Cadastro bem sucedido " , driver);
 		//driver.manage().timeouts().implicitlyWait(, TimeUnit.MILLISECONDS);
 		String resposta = driver.findElement(By.id("com.Advantage.aShopping:id/textViewMenuUser")).getText();
 		Assert.assertTrue(resposta.equals("GGhhj33"));
+
 
 	}
 
@@ -62,8 +65,10 @@ public class CadastroSteps {
 	public void o_usuario_nao_sera_registrado() throws Throwable {
 		cadastro.registrar();
 		cadastro.Opçoes(driver);
+		TakeSnapShot.tirarPrints("Cadastro nao foi sucedido " , driver);
 		//driver.manage().timeouts().implicitlyWait(35, TimeUnit.MILLISECONDS);
 		String resposta = driver.findElement(By.id("com.Advantage.aShopping:id/textViewMenuUser")).getText();
 		Assert.assertFalse(resposta.equals("GGhhj33"));
+
 	}
 }
