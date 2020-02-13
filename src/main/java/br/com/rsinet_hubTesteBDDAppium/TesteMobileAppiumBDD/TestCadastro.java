@@ -65,7 +65,7 @@ public class TestCadastro {
 
 	public void usuario() {
 		usuario.click();
-		usuario.sendKeys("GGhhj33");
+		usuario.sendKeys("GGHM23");
 	}
 
 	public void email() {

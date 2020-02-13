@@ -56,7 +56,7 @@ public class CadastroSteps {
 		TakeSnapShot.tirarPrints("Cadastro bem sucedido " , driver);
 		//driver.manage().timeouts().implicitlyWait(, TimeUnit.MILLISECONDS);
 		String resposta = driver.findElement(By.id("com.Advantage.aShopping:id/textViewMenuUser")).getText();
-		Assert.assertTrue(resposta.equals("GGhhj33"));
+		Assert.assertTrue(resposta.equals("GGHM23"));
 
 
 	}
@@ -68,7 +68,7 @@ public class CadastroSteps {
 		TakeSnapShot.tirarPrints("Cadastro nao foi sucedido " , driver);
 		//driver.manage().timeouts().implicitlyWait(35, TimeUnit.MILLISECONDS);
 		String resposta = driver.findElement(By.id("com.Advantage.aShopping:id/textViewMenuUser")).getText();
-		Assert.assertFalse(resposta.equals("GGhhj33"));
+		Assert.assertFalse(resposta.equals("GGHM23"));
 
 	}
 }
