@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import br.com.rsinet_hubTesteBDDAppium.TesteMobileAppiumUtils.Constantes;
 import br.com.rsinet_hubTesteBDDAppium.TesteMobileAppiumUtils.Driver;
@@ -17,7 +19,9 @@ import io.appium.java_client.touch.offset.PointOption;
 
 public class TestCadastro {
 	
+	@SuppressWarnings("rawtypes")
 	private TouchAction actions = new TouchAction((PerformsTouchActions) Driver.driver);
+	private WebDriverWait wait = new WebDriverWait(Driver.driver, 50);
 	
 	public TestCadastro(AndroidDriver<MobileElement> driver) {
 		PageFactory.initElements(driver, this);
@@ -61,29 +65,34 @@ public class TestCadastro {
 	private static WebElement registrar2;
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/imageViewMenu")
 	private static WebElement Opçoes;
+	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/imageViewMenu")
+	private static WebElement Opçoes2;
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/textViewMenuUser")
 	private static WebElement Resp1;
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/textViewMenuUser")
 	private static WebElement Resp2;
 	
-	public void registrar2() {
-		registrar2.click();
+	public void  getOpçoes2() {
+		Opçoes2.click();
 	}
-	public String Resp1() {
+	public void getRegistrar2() {
+		wait.until(ExpectedConditions.elementToBeClickable(registrar2)).click();
+	}
+	public String getResp1() {
 		return Resp1.getText();
 	}
-	public String Resp2() {
+	public String getResp2() {
 		return Resp2.getText();
 	}
 
-	public void MenuDeAçoes() {
+	public void getMenuDeAçoes() {
 		novo.click();
 		menu.click();
 		novaConta.click();
 	}
 
-	@SuppressWarnings("rawtypes")
-	public void CadastroDeCliente (AndroidDriver<MobileElement> driver) throws Exception {
+	
+	public void getCadastroDeCliente (AndroidDriver<MobileElement> driver) throws Exception {
 		Excell.setExcelFile(Constantes.caminho + Constantes.arquivo, "Planilha1");
 		usuario.click();
 		usuario.sendKeys(Excell.getCellData(0, 1));
@@ -113,10 +122,10 @@ public class TestCadastro {
 		actions.press(PointOption.point(1056, 1771)).moveTo(PointOption.point(1065, 992)).release().perform();
 	}
 	
-	public void registrar() {
-		registrar.click();
+	public void getRegistrar() {
+		wait.until(ExpectedConditions.elementToBeClickable(registrar)).click();
 	}
-	public void Opçoes() {
+	public void getOpçoes() {
 		Opçoes.click();
 	}
 }

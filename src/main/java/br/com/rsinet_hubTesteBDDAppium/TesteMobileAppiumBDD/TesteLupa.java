@@ -23,35 +23,35 @@ public class TesteLupa {
 	private static WebElement procurarProduto;
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/imageViewSearch")
 	private static WebElement clicaPraBusca;
-	@FindBy(how = How.XPATH, using = "//android.widget.RelativeLayout[@content-desc=\"Search\"]/android.widget.LinearLayout/android.widget.GridView/android.widget.RelativeLayout[4]/android.widget.TextView[1]")
+	@FindBy(how = How.XPATH, using = "//android.widget.RelativeLayout[@content-desc=\"Search\"]/android.widget.LinearLayout/android.widget.GridView/android.widget.RelativeLayout[3]")
 	private static WebElement product;
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/textViewProductName")
 	private static WebElement Respos1;
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/textViewNoProductsToShow")
 	private static WebElement Respos2;
 	
-	public String Respos1() {
+	public String getRespos1() {
 		return Respos1.getText();
 	}
-	public String Respos2() {
+	public String getRespos2() {
 		return Respos2.getText();
 	}
 
-	public void Search() {
+	public void getSearch() {
 		Procura.click();
-		Procura.sendKeys("mice");
+		Procura.sendKeys("tablet");
 	}
-	public void buscar() {
+	public void getBuscar() {
 		Busca.click();
 	}
-	public void procurarProduto() {
+	public void getProcurarProduto() {
 		procurarProduto.click();
 		procurarProduto.sendKeys("Xiaomi");
 	}
-	public void clica() {
+	public void getClica() {
 		clicaPraBusca.click();
 	}
-	public void product() {
+	public void getProduct() {
 		product.click();
 	}
 }

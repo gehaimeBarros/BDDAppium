@@ -12,7 +12,7 @@ import cucumber.api.SnippetType;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "C:\\Users\\gehaime.silva\\Desktop\\4444444444444444\\BDDAppium\\Features\\Cadastro_Test.feature",
+@CucumberOptions(features = "C:\\Users\\gehaime.silva\\Desktop\\4444444444444444\\BDDAppium\\Features",
 		glue = "br.com.rsinet_hubTesteBDDAppium/TesteMobileAppiumSteps",
 		plugin = {"com.cucumber.listener.ExtentCucumberFormatter:C:\\Users\\gehaime.silva\\Documents\\TesteAppimComple\\CadastroDoUsuarioECompra.html"},
      	monochrome = true,

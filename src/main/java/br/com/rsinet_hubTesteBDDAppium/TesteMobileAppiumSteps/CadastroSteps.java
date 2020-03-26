@@ -13,12 +13,12 @@ import io.appium.java_client.android.AndroidDriver;
 public class CadastroSteps {
 
 	private static AndroidDriver<MobileElement> driver;
-	private TestCadastro cadastro;
+	private TestCadastro cadastrando;
 	private TestCont testContext;
 
 	public CadastroSteps(TestCont context) {
 		testContext = context;
-		cadastro = testContext.getPageObjectFactory().getCadastro();
+		cadastrando = testContext.getPageObjectFactory().getCadastro();
 	}
 
 
@@ -28,28 +28,28 @@ public class CadastroSteps {
 
 	@Dado("^clico em fazer login$")
 	public void clico_em_fazer_login() throws Throwable {
-		cadastro.MenuDeAçoes();
+		cadastrando.getMenuDeAçoes();
 	}
 
 	@Dado("^clico preencher cadastro$")
 	public void clico_preencher_cadastro() throws Throwable {
-		cadastro.CadastroDeCliente(driver);
+		cadastrando.getCadastroDeCliente(driver);
 	}
 
 	@Entao("^e o usuario estara cadastrado$")
 	public void e_o_usuario_estara_cadastrado() throws Throwable {
-		cadastro.registrar();
-		cadastro.Opçoes();
-		Assert.assertTrue(cadastro.Resp1().contains("Gehr32"));
+		cadastrando.getRegistrar();
+		cadastrando.getOpçoes();
+		Assert.assertTrue(cadastrando.getResp1().contains("Gfdr45"));
 
 
 	}
 
 	@Entao("^o usuario nao sera registrado$")
 	public void o_usuario_nao_sera_registrado() throws Throwable {
-		cadastro.registrar2();
-		cadastro.Opçoes();
-		Assert.assertTrue(cadastro.Resp2().contains("Gehr32"));
+		cadastrando.getRegistrar2();
+		cadastrando.getOpçoes2();
+		Assert.assertTrue(cadastrando.getResp2().contains("LOGIN"));
 
 
 	}

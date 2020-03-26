@@ -48,63 +48,63 @@ public class TesteCompra {
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/textViewCartQuantity")
 	private static WebElement Respo2;
 
-	public String Respo1() {
+	public String getRespo1() {
 		return Respo1.getText();
 	}
-	public String Respo2() {
+	public String getRespo2() {
 		return Respo2.getText();
 	}
 	
-	public void Categoria() {
+	public void getCategoria() {
 		Categoria.click();
 	}
 
-	public void laptop() {
+	public void getLaptop() {
 		laptop.click();
 	}
 	
-	public void menu() {
+	public void getMenu() {
 		Menu.click();
 	}
 
-	public void loggin() {
+	public void getLoggin() {
 		loggin.click();
 	}
 
-	public void idusuario() {
+	public void getIdUsuario() {
 		IdUsuario.sendKeys("Geh7878");
 	}
 
-	public void senha() {
+	public void getSenha() {
 		Senha.sendKeys("Am#2019");
 	}
 
-	public void confirma() {
+	public void getConfirma() {
 		confirma.click();
 	}
 
-	public void quantidade() {
+	public void getQuantidade() {
 		quantidade.click();
 	}
-	public void numero() {
+	public void getNumero() {
 		numeros.sendKeys("100");
 	}
 
-	public void apply() {
+	public void getApply() {
 		apply.click();
 	}
 
-	public void addCarrinho() {
+	public void getAddCarrinho() {
 		addCarrinho.click();
 	}
 
-	public void CarrinhoDeCompras() {
+	public void getCarrinhoDeCompras() {
 		CarrinhoDeCompras.click();
 	}
-	public void tablet() {
+	public void getTablet() {
 		tablet.click();
 	}
-	public void EscolherTablet() {
+	public void getEscolherTablet() {
 		EscolherTablet.click();
 	}
 }
