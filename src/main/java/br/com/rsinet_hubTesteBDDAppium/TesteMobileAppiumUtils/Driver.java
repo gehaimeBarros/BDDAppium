@@ -33,17 +33,17 @@ public class Driver {
 
 	}
 
-	public static AndroidDriver<MobileElement> getDriver() throws MalformedURLException {
+	public  AndroidDriver<MobileElement> getDriver() throws MalformedURLException {
 		if (driver != null) {
 			return driver;
 		}
 		return Iniciar();
 	}
 
-	public static void Quit() {
+	public AndroidDriver<MobileElement> getQuit() {
 		if (driver != null) {
 			driver.quit();
 		}
-		driver = null;
+		return driver;
 	}
 }
