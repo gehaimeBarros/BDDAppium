@@ -5,17 +5,19 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import br.com.rsinet_hubTesteBDDAppium.TesteMobileAppiumUtils.Constantes;
+import br.com.rsinet_hubTesteBDDAppium.TesteMobileAppiumUtils.Driver;
 import br.com.rsinet_hubTesteBDDAppium.TesteMobileAppiumUtils.Excell;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.PerformsTouchActions;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.touch.offset.PointOption;
 
 public class TestCadastro {
+	
+	private TouchAction actions = new TouchAction((PerformsTouchActions) Driver.driver);
 	
 	public TestCadastro(AndroidDriver<MobileElement> driver) {
 		PageFactory.initElements(driver, this);
@@ -55,8 +57,24 @@ public class TestCadastro {
 	private static WebElement Cep;
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/buttonRegister")
 	private static WebElement registrar;
+	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/buttonRegister")
+	private static WebElement registrar2;
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/imageViewMenu")
 	private static WebElement Opçoes;
+	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/textViewMenuUser")
+	private static WebElement Resp1;
+	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/textViewMenuUser")
+	private static WebElement Resp2;
+	
+	public void registrar2() {
+		registrar2.click();
+	}
+	public String Resp1() {
+		return Resp1.getText();
+	}
+	public String Resp2() {
+		return Resp2.getText();
+	}
 
 	public void MenuDeAçoes() {
 		novo.click();
@@ -75,7 +93,6 @@ public class TestCadastro {
 		senha.sendKeys(Excell.getCellData(2, 1));
 		confirmaSenha.click();
 		confirmaSenha.sendKeys(Excell.getCellData(3, 1));
-		TouchAction actions = new TouchAction(driver);
 		actions.press(PointOption.point(1068, 1120)).moveTo(PointOption.point(1071, 253)).release().perform();
 		nome.click();
 		nome.sendKeys(Excell.getCellData(4, 1));
@@ -93,18 +110,13 @@ public class TestCadastro {
 		cidade.sendKeys(Excell.getCellData(10, 1));
 		Cep.click();
 		Cep.sendKeys(Excell.getCellData(11, 1));
-		TouchAction action = new TouchAction(driver);
-		action.press(PointOption.point(1056, 1771)).moveTo(PointOption.point(1065, 992)).release().perform();
+		actions.press(PointOption.point(1056, 1771)).moveTo(PointOption.point(1065, 992)).release().perform();
 	}
 	
 	public void registrar() {
 		registrar.click();
 	}
-
-	public void Opçoes(AndroidDriver<MobileElement> driver) {
-		WebDriverWait wait = new WebDriverWait(driver, 10);
-		wait.until(ExpectedConditions.elementToBeClickable(Opçoes)).click();
-		//Opçoes.click();
+	public void Opçoes() {
+		Opçoes.click();
 	}
-
 }

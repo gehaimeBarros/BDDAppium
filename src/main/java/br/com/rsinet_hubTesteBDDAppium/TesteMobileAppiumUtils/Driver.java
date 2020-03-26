@@ -12,9 +12,10 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 
 public class Driver {
+	
 	private static DesiredCapabilities capabilities;
 
-	private static AndroidDriver<MobileElement> driver;
+	public static AndroidDriver<MobileElement> driver;
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static AndroidDriver<MobileElement> Iniciar() throws MalformedURLException {

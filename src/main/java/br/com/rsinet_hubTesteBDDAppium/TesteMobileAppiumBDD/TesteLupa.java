@@ -25,7 +25,18 @@ public class TesteLupa {
 	private static WebElement clicaPraBusca;
 	@FindBy(how = How.XPATH, using = "//android.widget.RelativeLayout[@content-desc=\"Search\"]/android.widget.LinearLayout/android.widget.GridView/android.widget.RelativeLayout[4]/android.widget.TextView[1]")
 	private static WebElement product;
+	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/textViewProductName")
+	private static WebElement Respos1;
+	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/textViewNoProductsToShow")
+	private static WebElement Respos2;
 	
+	public String Respos1() {
+		return Respos1.getText();
+	}
+	public String Respos2() {
+		return Respos2.getText();
+	}
+
 	public void Search() {
 		Procura.click();
 		Procura.sendKeys("mice");

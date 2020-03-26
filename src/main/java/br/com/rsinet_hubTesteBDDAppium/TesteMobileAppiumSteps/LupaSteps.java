@@ -1,9 +1,7 @@
 package br.com.rsinet_hubTesteBDDAppium.TesteMobileAppiumSteps;
 
-import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
 
 import br.com.rsinet_hubTesteBDDAppium.TesteMobileAppiumBDD.TesteLupa;
 import br.com.rsinet_hubTesteBDDAppium.TesteMobileAppiumUtils.TestCont;
@@ -37,10 +35,7 @@ public class LupaSteps {
 	@Entao("^a pagina do resultado aparecera com o resultado da busca do seu produto$")
 	public void a_pagina_do_resultado_aparecera_com_o_resultado_da_busca_do_seu_produto() throws Throwable {
 		Buscas.product();
-		driver.manage().timeouts().implicitlyWait(100, TimeUnit.MICROSECONDS);
-		String resposta = driver.findElement(By.id("com.Advantage.aShopping:id/textViewProductName")).getText();
-		Assert.assertTrue(resposta.equals("HP USB 3 BUTTON OPTICAL MOUSE"));
-	
+		Assert.assertTrue(Buscas.Respos1().contains("HP USB 3 BUTTON OPTICAL MOUSE"));	
 
 	}
 
@@ -53,11 +48,8 @@ public class LupaSteps {
 	@Entao("^aparecera uma pagina informando que o produto nao foi encontrado$")
 	public void aparecera_uma_pagina_informando_que_o_produto_nao_foi_encontrado() throws Throwable {
 		Buscas.clica();
-		driver.manage().timeouts().implicitlyWait(100, TimeUnit.MICROSECONDS);
-		String resposta = driver.findElement(By.id("com.Advantage.aShopping:id/textViewNoProductsToShow")).getText();
-		Assert.assertFalse(resposta.equals("No results for \"xiaomi\""));
+		Assert.assertTrue(Buscas.Respos1().contains("No results for \"xiaomi\""));	
 	
-
 	}
 
 }

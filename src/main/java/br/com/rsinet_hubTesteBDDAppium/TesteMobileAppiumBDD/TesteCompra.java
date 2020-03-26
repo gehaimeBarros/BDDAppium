@@ -43,7 +43,18 @@ public class TesteCompra {
 	private static WebElement tablet;
 	@FindBy(how = How.XPATH, using = "//android.widget.RelativeLayout[@content-desc=\"Tablets\"]/android.widget.LinearLayout/android.widget.GridView/android.widget.RelativeLayout[3]/android.widget.TextView[1]")
 	private static WebElement EscolherTablet;
+	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/textViewProductName")
+	private static WebElement Respo1;
+	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/textViewCartQuantity")
+	private static WebElement Respo2;
 
+	public String Respo1() {
+		return Respo1.getText();
+	}
+	public String Respo2() {
+		return Respo2.getText();
+	}
+	
 	public void Categoria() {
 		Categoria.click();
 	}

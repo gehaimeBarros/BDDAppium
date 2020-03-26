@@ -1,7 +1,6 @@
 package br.com.rsinet_hubTesteBDDAppium.TesteMobileAppiumSteps;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
 
 
 import br.com.rsinet_hubTesteBDDAppium.TesteMobileAppiumBDD.TestCadastro;
@@ -40,21 +39,18 @@ public class CadastroSteps {
 	@Entao("^e o usuario estara cadastrado$")
 	public void e_o_usuario_estara_cadastrado() throws Throwable {
 		cadastro.registrar();
-		cadastro.Opçoes(driver);
-		//driver.manage().timeouts().implicitlyWait(, TimeUnit.MILLISECONDS);
-		String resposta = driver.findElement(By.id("com.Advantage.aShopping:id/textViewMenuUser")).getText();
-		Assert.assertTrue(resposta.equals("Gehr32"));
+		cadastro.Opçoes();
+		Assert.assertTrue(cadastro.Resp1().contains("Gehr32"));
 
 
 	}
 
 	@Entao("^o usuario nao sera registrado$")
 	public void o_usuario_nao_sera_registrado() throws Throwable {
-		cadastro.registrar();
-		cadastro.Opçoes(driver);
-		//driver.manage().timeouts().implicitlyWait(35, TimeUnit.MILLISECONDS);
-		String resposta = driver.findElement(By.id("com.Advantage.aShopping:id/textViewMenuUser")).getText();
-		Assert.assertFalse(resposta.equals("Gehr32"));
+		cadastro.registrar2();
+		cadastro.Opçoes();
+		Assert.assertTrue(cadastro.Resp2().contains("Gehr32"));
+
 
 	}
 }

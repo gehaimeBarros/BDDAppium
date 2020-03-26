@@ -12,13 +12,13 @@ import cucumber.api.SnippetType;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "C:\\Users\\gehaime.silva\\Desktop\\4444444444444444\\BDDAppium\\Features",
+@CucumberOptions(features = "C:\\Users\\gehaime.silva\\Desktop\\4444444444444444\\BDDAppium\\Features\\Cadastro_Test.feature",
 		glue = "br.com.rsinet_hubTesteBDDAppium/TesteMobileAppiumSteps",
 		plugin = {"com.cucumber.listener.ExtentCucumberFormatter:C:\\Users\\gehaime.silva\\Documents\\TesteAppimComple\\CadastroDoUsuarioECompra.html"},
      	monochrome = true,
      	snippets = SnippetType.CAMELCASE,
 		dryRun = false
-
+                        
 		)
 public class Runner {
 	@AfterClass
