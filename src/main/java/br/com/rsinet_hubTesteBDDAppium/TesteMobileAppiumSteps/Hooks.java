@@ -21,7 +21,7 @@ public class Hooks {
 
 	public AndroidDriver<MobileElement> driver;
 	private TestCont testContext;
-	public Hooks(TestCont context) {
+	public Hooks(TestfCont context) {
 		testContext = context;
 	}
 	
