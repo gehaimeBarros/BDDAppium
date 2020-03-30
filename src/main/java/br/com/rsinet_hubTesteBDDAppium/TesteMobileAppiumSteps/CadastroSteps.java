@@ -7,12 +7,9 @@ import br.com.rsinet_hubTesteBDDAppium.TesteMobileAppiumBDD.TestCadastro;
 import br.com.rsinet_hubTesteBDDAppium.TesteMobileAppiumUtils.TestCont;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.pt.Entao;
-import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidDriver;
 
 public class CadastroSteps {
 
-	private static AndroidDriver<MobileElement> driver;
 	private TestCadastro cadastrando;
 	private TestCont testContext;
 
@@ -33,14 +30,14 @@ public class CadastroSteps {
 
 	@Dado("^clico preencher cadastro$")
 	public void clico_preencher_cadastro() throws Throwable {
-		cadastrando.getCadastroDeCliente(driver);
+		cadastrando.getCadastroDeCliente();
 	}
 
 	@Entao("^e o usuario estara cadastrado$")
 	public void e_o_usuario_estara_cadastrado() throws Throwable {
 		cadastrando.getRegistrar();
 		cadastrando.getOpçoes();
-		Assert.assertTrue(cadastrando.getResp1().contains("Gfdr45"));
+		Assert.assertTrue(cadastrando.getResp1().contains("Jucca25"));
 
 
 	}

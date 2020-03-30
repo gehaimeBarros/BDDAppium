@@ -92,7 +92,7 @@ public class TestCadastro {
 	}
 
 	
-	public void getCadastroDeCliente (AndroidDriver<MobileElement> driver) throws Exception {
+	public void getCadastroDeCliente () throws Exception {
 		Excell.setExcelFile(Constantes.caminho + Constantes.arquivo, "Planilha1");
 		usuario.click();
 		usuario.sendKeys(Excell.getCellData(0, 1));
